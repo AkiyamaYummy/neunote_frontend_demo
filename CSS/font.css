@@ -1,0 +1,23 @@
+body{
+    font-family: 'Microsoft Yahei', sans-serif;
+}
+@font-face {
+    font-family: "方正仿宋简体";
+    src: url("../FONT/FZFSJW.TTF");
+}
+@font-face {
+    font-family: "方正黑体简体";
+    src: url("../FONT/FZHTJW.TTF");
+}
+@font-face {
+    font-family: "方正楷体简体";
+    src: url("../FONT/FZKTJW.TTF");
+}
+@font-face {
+    font-family: "方正书宋简体";
+    src: url("../FONT/FZSSJW.TTF");
+}
+@font-face {
+    font-family: "ALEO";
+    src: url("../FONT/aleo.TTF");
+}

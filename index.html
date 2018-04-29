@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>首页-NEUNOTE</title>
+    <link rel="stylesheet" href="CSS/mainpage.css">
+    <link rel="stylesheet" href="CSS/font.css">
+    <script type="text/javascript" src="JS/cookietool.js"></script>
+    <script>
+        function pageVerify(){
+            var c_code = get_cookie("c_code");
+            if(c_code === null){
+                location.href = "login.jsp";
+            }
+            jQuery.ajax({
+                type: 'POST',
+                dataType: 'text',
+                url: "CheckCookies",
+                data:{"c_code":c_code},
+                async:false,
+                success:function(data){
+                    if((data+"").trim() !== "Verify successed."){
+                        location.href = "login.jsp";
+                    }
+                }.bind(this)
+            });
+        }
+        //pageVerify()
+    </script>
+</head>
+<body onload="bodyOnload()">
+<div id="main-top-panel">
+    <div class="main-top-title">$NEU \infty NOTE$</div>
+    <div id="main-top-head"></div>
+    <a href="edit.html"><button id="main-top-edit-note-button" class="main-top-button">我的笔记</button></a>
+    <button id="main-top-space-button" class="main-top-button">个人空间</button>
+    <button id="main-top-edit-message-button" class="main-top-button">编辑信息</button>
+</div>
+<div id="title-picture-panel"></div>
+<div id="main-title">$$NEU \infty NOTE$$</div>
+<div id="main-content-panel">
+    <div id="note-search-panel">
+        <input id="note-search-input" type="text"/>
+        <button id="note-search-button" onclick="noteSearchButtonOnclick(this)">搜&nbsp;索</button>
+    </div>
+    <div id="note-search-display-panel" class="note-display-panel">
+        <div class="note-display-panel-title"><span>搜索结果</span></div>
+        <div class="note-display-panel-content" id="note-search-display-content">
+            <div class="note-display-item-switch-panel">
+            </div>
+            <div class="note-display-page-switch-panel">
+                <button>上一页</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>下一页</button>
+            </div>
+        </div>
+    </div>
+    <div class="note-display-panel">
+        <div class="note-display-panel-title"><span>笔记一览</span></div>
+        <div class="note-display-panel-content" id="note-main-display-content">
+            <div class="note-display-item-switch-panel">
+                <button>最新笔记</button>
+                <button>学霸笔记</button>
+                <button>同专业笔记</button>
+            </div>
+            <div class="note-display-page-switch-panel">
+                <button>上一页</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>下一页</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript" src="JS/jquery.js"></script>
+<script type="application/javascript" src="JS/mainpage.js"></script>
+<script type="application/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script>
+    function bodyOnload(){
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+                messageStyle: "none",
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+            inlineMath:  [ ["$", "$"] ],
+                displayMath: [ ["$$","$$"] ],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a','protect'],
+                ignoreClass:"text-flag"
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"],
+                showMathMenu: false
+            }
+        });
+
+        loadNotes($("#note-main-display-content"),messagedemo);
+    }
+</script>
+</body>
+</html>

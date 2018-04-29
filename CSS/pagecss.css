@@ -1,0 +1,33 @@
+.text-panel p,h1,h2,h3,h4{
+    margin: 0 0 5px 0;
+}
+.text-panel blockquote{
+    margin: 0 30px;
+    border-left: 10px solid grey;
+    background: lightgray;
+}
+.text-panel table,td,th{
+    border: 1px solid grey;
+    margin: 2px auto;
+    text-align: center;
+}
+.text-panel table{
+    width: 80%;
+}
+.text-panel td{
+    padding: 1px 7px;
+}
+.img-panel{
+    width: 80%;
+    margin: 2px auto;
+}
+.text-panel img{
+    width: 100%;
+}
+.img-comment{
+    font-size: 15px;
+    font-family: 方正楷体简体;
+    text-align: center;
+    color: grey;
+    margin-bottom: 5px;
+}
